@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import swal from 'sweetalert';
 
 
 const Navbar = () => {
@@ -10,13 +11,15 @@ const Navbar = () => {
 
     const handleSingOut = () => [
         logOut()
-        .then
+        .then( () => {
+            swal("Sucesfully Loged Out!", "Hope we see you again!", "success");
+        })
         .catch
     ]
 
     const navLinks = <>
-    <li><NavLink to="/">Home</NavLink></li>
-    <li><NavLink to="/login">Login</NavLink></li>
+    <li className='mr-1'><NavLink to="/">Home</NavLink></li>
+    <li className='mr-1'> <NavLink to="/login">Login</NavLink></li>
     <li><NavLink to="/Register">Register</NavLink></li>
 
 </>
@@ -47,7 +50,9 @@ const Navbar = () => {
                 </label>
 
             {
-                user ? <button onClick={handleSingOut} className="btn">LogOut</button> :
+                user ? <> <p>{user.email}</p> <br />
+                        <button onClick={handleSingOut} className="btn">LogOut</button>
+                </> :
 
                 <Link>
                 <button className="btn">Login</button>

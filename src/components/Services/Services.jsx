@@ -7,7 +7,7 @@ const Services = ({eachData}) => {
     
     return (
         <div>
-            <h2>
+            
             <div className=" bg-base-100 shadow-xl">
   <figure><img className="h-[220px] w-full" src={image} alt="Shoes" /></figure>
   <div className="card-body">
@@ -23,7 +23,7 @@ const Services = ({eachData}) => {
   </div>
 </div>
         
-            </h2>
+            
         </div>
     );
 };

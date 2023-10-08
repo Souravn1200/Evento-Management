@@ -1,21 +1,43 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import swal from 'sweetalert';
 
 const Register = () => {
 
     const {createUser} = useContext(AuthContext)
-
+    const [regiError, setRegiError] = useState('')
     const handleRegister = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const name = form.get('name')
         const email =  form.get('email');
         const password = form.get('password');
+        const upperCaseRegx = /[A-Z]/;
+        const specialCharacterRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?/~\\-]/
+
+        setRegiError('')
+
+        if(password.length < 6) {
+            setRegiError('Password should be 6 chartecters or longer.')
+            return;
+        } else if(!upperCaseRegx.test(password)){
+            setRegiError('Please make sure to put at least one Upper Case Charecter in password')
+
+            return
+        }else if(!specialCharacterRegex.test(password)){
+            setRegiError('Please make sure to put at least one Special Charecter in password')
+            return;
+        }
 
         createUser( email, password)
-        .then(user => (console.log(user)))
-        .catch(error => console.log(error))
+        .then(user => (
+            swal("Congratulations!", "Please go to login page to log in!", "success")
+
+        ))
+        .catch(error => {
+            setRegiError(error.message)
+        })
 
         console.log(email, password, name)
     } 
@@ -23,7 +45,7 @@ const Register = () => {
     return (
         
         <div >
-            <h2 className="text-3xl my-10 text-center">Join Us!</h2>
+            <h2 className="text-3xl my-7 text-center">Join Us!</h2>
             <form onSubmit={handleRegister} className=" md:w-3/4 lg:w-1/2 mx-auto">
                 <div className="form-control">
                     <label className="label">
@@ -51,6 +73,10 @@ const Register = () => {
                 </div>
             </form>
             <p className="text-center mt-4">Have an account? <Link className="text-blue-600 font-bold" to="/login">Login</Link></p>
+
+            {
+                regiError && <p className='text-red-600 font-semibold text-center mt-4'>{regiError}</p>
+            }
         </div>
    
     );

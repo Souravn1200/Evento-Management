@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import swal from 'sweetalert';
 
 const Login = () => {
 
     const {logIn} = useContext(AuthContext);
     const navigate = useNavigate()
+    const [loginError, setLoginError] = useState('')
 
     const location = useLocation();
     const handleLogin = e => {
@@ -14,11 +16,16 @@ const Login = () => {
         const email =  form.get('email')
         const password =  form.get('password')
 
+        setLoginError('');
+
        logIn(email, password)
        .then(result => {
+        swal("Heyy!", "You are logged in!", "success");
             navigate(location?.state ? location.state : '/')
        })
-       .catch(err => console.log(err));
+       .catch(error => {
+        setLoginError(error.message)
+       });
 
     }
 
@@ -49,6 +56,10 @@ const Login = () => {
                     </div>
                 </form>
                 <p className="text-center mt-4">Do not have an account?  <Link className="text-blue-600 font-bold" to="/register">Register</Link></p>
+
+                {
+                loginError && <p className='text-red-600 font-semibold text-center mt-4'>{loginError}</p>
+            }
             </div>
 
         </div>
