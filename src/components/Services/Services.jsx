@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Services = ({eachData}) => {
@@ -14,7 +15,10 @@ const Services = ({eachData}) => {
     <p>{description}</p>
     <div className="card-actions flex mt-3">
         <p className="font-bold">{price}</p>
-      <button className="btn btn-primary">Buy now</button>
+
+        <Link to={`/services/${id}`}>
+      <button className="btn btn-primary">Order Now!</button>
+         </Link>
     </div>
   </div>
 </div>
