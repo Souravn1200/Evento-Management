@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "name": "Conferences and Seminars",
+      "image": "https://i.ibb.co/S7m3Xtq/5-Ways-To-Organize-A-Conference.jpg",
+      "price": "$499.99",
+      "description": "Join industry leaders and experts for the latest in trends and innovations."
+    },
+    {
+      "id": 2,
+      "name": "Trade Shows and Expos",
+      "image": "https://i.ibb.co/7v3hztW/Free-From-Food-Expo-2-min.jpg",
+      "price": "$299.99",
+      "description": "Explore a diverse range of services from global exhibitors at this trade expo."
+    },
+    {
+      "id": 3,
+      "name": "Team Building Workshops",
+      "image": "https://i.ibb.co/Yy6bz46/image.jpg",
+      "price": "$199.99",
+      "description": "Enhance teamwork and collaboration with engaging activities and workshops."
+    },
+    {
+      "id": 4,
+      "name": "Product Launches",
+      "image": "https://i.ibb.co/wrfyPJV/product-launch-event.jpg",
+      "price": "$599.99",
+      "description": "Be the first to witness the unveiling of cutting-edge products in this exclusive event."
+    },
+    {
+      "id": 5,
+      "name": "Corporate Meetings",
+      "image": "https://i.ibb.co/XSJ3wzJ/istockphoto-1146472948-1024x1024.jpg",
+      "price": "$399.99",
+      "description": "A strategic gathering of corporate leaders to discuss business strategies and future plans."
+    },
+    {
+      "id": 6,
+      "name": "Award Ceremonies",
+      "image": "https://i.ibb.co/yRZgX1K/VR-Awards-2018-award-ceremony-production.jpg",
+      "price": "$149.99",
+      "description": "Celebrate and recognize outstanding achievements in the corporate world at this prestigious awards ceremony."
+    }
+]
