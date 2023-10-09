@@ -6,9 +6,9 @@ const Services = ({eachData}) => {
     const {id, name, image, price, description} = eachData
     
     return (
-        <div>
+        <div >
             
-            <div className=" shadow-xl bg-[#93BFCF] ">
+            <div className=" shadow-xl bg-[#93BFCF] " data-aos="fade-down">
   <figure><img className="h-[220px] w-full" src={image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{name}</h2>

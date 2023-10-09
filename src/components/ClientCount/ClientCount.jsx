@@ -16,11 +16,11 @@ import k from '../../assets/1.svg'
 
 const ClientCount = () => {
     return (
-        <div className='mt-10'>
+        <div className='mt-10 hidden lg:block'>
 
             <h2 className='text-3xl text-center mb-6 font-semibold'>Client Counter</h2>
 
-            <div className="stats mx-auto ml-60 bg-[#BDCDD6] py-2">
+            <div className="stats mx-auto  lg:ml-60 bg-[#BDCDD6] py-2">
   
   <div className="stat">
     <div className="stat-figure text-primary">

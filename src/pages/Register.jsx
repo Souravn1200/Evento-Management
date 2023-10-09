@@ -7,7 +7,7 @@ import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext)
+    const {createUser,logOut} = useContext(AuthContext)
     const [regiError, setRegiError] = useState('')
 
 
@@ -44,9 +44,10 @@ const Register = () => {
             updateProfile(result.user, {
                 displayName: name,
                 photoURL: photo
+
             })
             .then(() => {
-                return
+                logOut();
                
             })
             .catch(error => {

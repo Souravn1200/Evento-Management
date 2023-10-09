@@ -36,7 +36,7 @@ const Navbar = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                     
                     </label>
-                    <img src={eventLogo} className='h-[120px] bg-[#93BFCF]' alt="" />
+                    <img src={eventLogo} className='h-[120px] bg-[#93BFCF] hidden lg:block md:blo' alt="" />
 
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         {navLinks}
@@ -44,7 +44,7 @@ const Navbar = () => {
                 </div>
 
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navLinks}
                 </ul>
