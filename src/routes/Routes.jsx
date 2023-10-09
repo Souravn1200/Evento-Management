@@ -7,6 +7,7 @@ import ServiceDetails from "../pages/ServiceDetails";
 import PrivateRoute from "./PrivateRoute";
 import QandA from "../pages/QandA";
 import AboutUs from "../pages/AboutUs";
+import PageNotFound from "../components/PageNotFound/PageNotFound";
 
 const router = createBrowserRouter([{
 
@@ -44,6 +45,9 @@ const router = createBrowserRouter([{
     {
         path: '/about',
         element: <PrivateRoute><AboutUs></AboutUs></PrivateRoute>
+    },{
+        path: '*',
+        element: <PageNotFound></PageNotFound>
     }
 ]
 }])

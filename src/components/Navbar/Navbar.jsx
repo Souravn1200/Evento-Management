@@ -50,19 +50,28 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
 
-                    {
-                        user ? <> <div className="w-10 rounded-full">
-                        <img src={avatar} />
-                    </div> </> : <></>
-                    }
+                
 
                     
-                </label>
+                   <div className='flex gap-2'>
+                   <label className="btn btn-ghost btn-circle avatar">
+                   <div className='w-10 rounded-full'>
+                    
+                    { user?.photoURL ? (<img className='rounded-full' src={user.photoURL} />)  : <></>}
+                    </div>
+      
+                    </label>
+
+                    <div className='text-sm mt-2 mr-2'>
+                    {user?.displayName} <br />
+                    {user?.email}
+                    </div>
+                   </div>
+                
 
             {
-                user ? <> <p>{user.email}</p> <br />
+                user ? <> <br />
                         <button onClick={handleSingOut} className="btn text-white bg-[#6096B4] hover:bg-[#3d657a]">LogOut</button>
                 </> :
 

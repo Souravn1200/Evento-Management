@@ -3,9 +3,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import swal from 'sweetalert';
 
+
 const Login = () => {
 
-    const {logIn} = useContext(AuthContext);
+    const {logIn, createUserByGoogle} = useContext(AuthContext);
     const navigate = useNavigate()
     const [loginError, setLoginError] = useState('')
 
@@ -27,6 +28,17 @@ const Login = () => {
         setLoginError(error.message)
        });
 
+    }
+
+    const handleGoogleRegister = () =>{
+        createUserByGoogle()
+        .then(result => {
+
+            console.log(result)
+        })
+        .catch(error => {
+        setLoginError(error.message)
+       });
     }
 
     return (
@@ -52,9 +64,14 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn text-white font-thin bg-[#3d657a] hover:bg-[#6096B4]">Login</button>
+                        <button className="btn text-white bg-[#3d657a] hover:bg-[#6096B4]">Login</button>
                     </div>
                 </form>
+
+                <div className="form-control mt-6 w-1/2 mx-auto">
+                    <button onClick={handleGoogleRegister} className="btn text-white bg-[#3d657a] hover:bg-[#6096B4]">Register By Google</button>
+                </div>
+
                 <p className="text-center mt-4">Do not have an account?  <Link className="text-blue-600 font-bold" to="/register">Register</Link></p>
 
                 {

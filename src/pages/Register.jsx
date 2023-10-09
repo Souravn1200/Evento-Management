@@ -2,19 +2,25 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import swal from 'sweetalert';
+import { updateProfile } from 'firebase/auth';
+
 
 const Register = () => {
 
     const {createUser} = useContext(AuthContext)
     const [regiError, setRegiError] = useState('')
+
+
     const handleRegister = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
-        const name = form.get('name')
+        const name = form.get('name') 
+        const photo = form.get('photo')
         const email =  form.get('email');
         const password = form.get('password');
         const upperCaseRegx = /[A-Z]/;
         const specialCharacterRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?/~\\-]/
+
 
         setRegiError('')
 
@@ -31,16 +37,33 @@ const Register = () => {
         }
 
         createUser( email, password)
-        .then(user => (
+        .then( result => {
+            console.log('ami achi' , result.user)
             swal("Congratulations!", "Please go to login page to log in!", "success")
 
-        ))
+            updateProfile(result.user, {
+                displayName: name,
+                photoURL: photo
+            })
+            .then(() => {
+                return
+               
+            })
+            .catch(error => {
+                setRegiError(error)
+            })
+        })
+        
         .catch(error => {
             setRegiError(error.message)
         })
 
-        console.log(email, password, name)
     } 
+
+
+
+    
+   
 
     return (
         
@@ -53,6 +76,14 @@ const Register = () => {
                     </label>
                     <input type="text" required name="name" placeholder="Name" className="input input-bordered" />
                 </div>
+
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Photo Url</span>
+                    </label>
+                    <input type="text" required name="photo" placeholder="Photo Url" className="input input-bordered" />
+                </div>
+
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
@@ -71,7 +102,12 @@ const Register = () => {
                 <div className="form-control mt-6">
                     <button className="btn text-white font-thin bg-[#3d657a] hover:bg-[#6096B4]">Register</button>
                 </div>
+
+                
             </form>
+
+    
+
             <p className="text-center mt-4">Have an account? <Link className="text-blue-600 font-bold" to="/login">Login</Link></p>
 
             {
