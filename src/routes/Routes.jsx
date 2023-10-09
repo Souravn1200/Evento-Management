@@ -5,6 +5,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ServiceDetails from "../pages/ServiceDetails";
 import PrivateRoute from "./PrivateRoute";
+import QandA from "../pages/QandA";
+import AboutUs from "../pages/AboutUs";
 
 const router = createBrowserRouter([{
 
@@ -34,6 +36,14 @@ const router = createBrowserRouter([{
         path: '/register',
         element: <Register></Register>
         
+    },
+    {
+        path: '/qanda',
+        element: <PrivateRoute><QandA></QandA></PrivateRoute>
+    },
+    {
+        path: '/about',
+        element: <PrivateRoute><AboutUs></AboutUs></PrivateRoute>
     }
 ]
 }])

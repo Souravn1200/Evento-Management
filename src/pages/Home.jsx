@@ -22,7 +22,7 @@ const data = useLoaderData();
 
 
             <div>
-            <h2 className="text-3xl mt-7 mb-7 text-center">Our Services</h2>
+            <h2 className="text-3xl mt-7 mb-7 text-center font-semibold">Our Services</h2>
             <div className="grid lg:grid-cols-3 gap-6 mt-6">
             {data.map(eachData => <Services key={eachData.id} eachData={eachData}></Services>)}
             </div>

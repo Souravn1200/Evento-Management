@@ -15,7 +15,7 @@ const ServiceDetails = () => {
     return (
         <div>
         <h2>
-        <div className=" bg-base-100 shadow-xl">
+        <div className=" bg-[#BDCDD6] shadow-xl">
 <figure><img className="h-[700px] w-full" src={user.image} alt="Shoes" /></figure>
 <div className="card-body">
 <h2 className="card-title">{user.name}</h2>

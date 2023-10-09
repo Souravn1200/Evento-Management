@@ -52,7 +52,7 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
+                        <button className="btn text-white font-thin bg-[#3d657a] hover:bg-[#6096B4]">Login</button>
                     </div>
                 </form>
                 <p className="text-center mt-4">Do not have an account?  <Link className="text-blue-600 font-bold" to="/register">Register</Link></p>
